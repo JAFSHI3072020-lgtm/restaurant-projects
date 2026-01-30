@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Bites | Restaurant</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            });
+            document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+        });
+    </script>
+</head>
+
+<body class="bg-black text-gray-200 font-sans">
+
+<!-- NAVBAR -->
+<nav class="fixed top-0 w-full bg-black/80 backdrop-blur z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-red-600">Tasty Bites</h1>
+        <div class="hidden md:flex gap-6">
+            <a href="#hero" class="hover:text-red-600">Home</a>
+            <a href="#menu" class="hover:text-red-600">Menu</a>
+            <a href="#about" class="hover:text-red-600">About</a>
+            <a href="#contact" class="hover:text-red-600">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero"
+class="relative h-screen flex items-center justify-center text-center bg-cover bg-center"
+style="background-image:url('https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg');">
+
+    <!-- overlay -->
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <!-- hero text -->
+    <div class="relative z-10 fade-in px-6">
+        <h2 class="text-5xl md:text-6xl font-bold text-red-600 mb-4">
+            Welcome to Tasty Bites
+        </h2>
+        <p class="text-xl mb-6">
+            Fresh ingredients. Delicious flavors.
+        </p>
+        <a href="#menu"
+           class="bg-red-700 hover:bg-red-800 px-8 py-3 rounded-lg font-semibold transition">
+            View Menu
+        </a>
+    </div>
+
+    <!-- floating food images -->
+    <div class="absolute bottom-10 w-full flex justify-center gap-6 z-10 fade-in">
+        <img src="https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg"
+             class="w-20 h-20 md:w-28 md:h-28 rounded-full shadow-xl hover:scale-110 transition">
+        <img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg"
+             class="w-20 h-20 md:w-28 md:h-28 rounded-full shadow-xl hover:scale-110 transition">
+        <img src="https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg"
+             class="w-20 h-20 md:w-28 md:h-28 rounded-full shadow-xl hover:scale-110 transition">
+    </div>
+</section>
+
+<!-- MENU SECTION -->
+<section id="menu" class="py-24 bg-gray-900">
+    <h2 class="text-4xl font-bold text-center text-red-600 mb-16 fade-in">
+        Our Menu
+    </h2>
+
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+        <!-- GRILLED CHICKEN -->
+        <div class="bg-black rounded-xl overflow-hidden shadow-lg fade-in">
+            <img src="https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg"
+                 class="w-full h-56 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-2">
+                    Grilled Chicken
+                </h3>
+                <p class="text-gray-300 mb-4">
+                    Tender grilled chicken with herbs.
+                </p>
+                <span class="text-red-500 font-bold">$15.99</span>
+            </div>
+        </div>
+
+        <!-- PIZZA -->
+        <div class="bg-black rounded-xl overflow-hidden shadow-lg fade-in">
+            <img src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg"
+                 class="w-full h-56 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-2">
+                    Italian Pizza
+                </h3>
+                <p class="text-gray-300 mb-4">
+                    Cheesy pizza baked to perfection.
+                </p>
+                <span class="text-red-500 font-bold">$14.99</span>
+            </div>
+        </div>
+
+        <!-- BURGER -->
+        <div class="bg-black rounded-xl overflow-hidden shadow-lg fade-in">
+            <img src="https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg"
+                 class="w-full h-56 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-semibold text-red-600 mb-2">
+                    Beef Burger
+                </h3>
+                <p class="text-gray-300 mb-4">
+                    Juicy burger with fresh vegetables.
+                </p>
+                <span class="text-red-500 font-bold">$11.99</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-black text-center">
+    <div class="max-w-3xl mx-auto fade-in px-6">
+        <h2 class="text-4xl font-bold text-red-600 mb-6">About Us</h2>
+        <p class="text-lg text-gray-300">
+            Tasty Bites offers premium dining with cozy vibes,
+            fresh ingredients, and unforgettable taste.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 bg-gray-900 text-center">
+    <div class="fade-in">
+        <h2 class="text-4xl font-bold text-red-600 mb-6">Contact</h2>
+        <p>📍 Albarta</p>
+        <p>📞 +880 1234 567890</p>
+        <p>📧 info@tastybites.com</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-red-900 text-center py-4">
+    © 2026 Tasty Bites. All rights reserved.
+</footer>
+
+</body>
+</html>
+
+
+
